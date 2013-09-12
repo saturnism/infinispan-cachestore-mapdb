@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema attributeFormDefault="unqualified"
+   elementFormDefault="qualified" version="1.0" targetNamespace="urn:infinispan:config:mapdb:6.0"
+   xmlns:tns="urn:infinispan:config:mapdb:6.0" xmlns:config="urn:infinispan:config:6.0"
+   xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:import namespace="urn:infinispan:config:6.0" schemaLocation="http://www.infinispan.org/schemas/infinispan-config-6.0.xsd" />
+
+   <xs:element name="mapdbStore" type="tns:mapdbStoreType"/>
+   
+   <xs:complexType name="mapdbStoreType">
+      <xs:complexContent>
+         <xs:extension base="config:lockSupportStore">
+         	<xs:attribute name="location" type="xs:string" default="mapdb/data">
+               <xs:annotation>
+                  <xs:documentation>
+                     
+                  </xs:documentation>
+               </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="expiredLocation" type="xs:string" default="mapdb/expired">
+               <xs:annotation>
+                  <xs:documentation>
+                     
+                  </xs:documentation>
+               </xs:annotation>
+            </xs:attribute>
+            
+            <xs:attribute name="expiryQueueSize" type="xs:integer" default="10000">
+               <xs:annotation>
+                  <xs:documentation>
+                     
+                  </xs:documentation>
+               </xs:annotation>
+            </xs:attribute>
+            
+            <xs:attribute name="compressionType" type="xs:boolean" default="" >
+               <xs:annotation>
+                  <xs:documentation>
+                     Whether to compress objects stored.
+                  </xs:documentation>
+               </xs:annotation>
+            </xs:attribute>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+</xs:schema>
